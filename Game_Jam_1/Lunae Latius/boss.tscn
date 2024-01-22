@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://c5hpcujv7yikh"]
+
+[ext_resource type="Script" path="res://Boss.gd" id="1_tj8q1"]
+[ext_resource type="Texture2D" uid="uid://du8xnfuugf587" path="res://SpreadingProto_1.png" id="2_fi1jb"]
+[ext_resource type="Script" path="res://AttackTimer.gd" id="3_e1j3e"]
+[ext_resource type="Texture2D" uid="uid://b5qiqhgrg3xx8" path="res://Attack1.png" id="4_yp00y"]
+[ext_resource type="Texture2D" uid="uid://ctj5a8a4eel1h" path="res://Attack2.png" id="5_f0kjc"]
+[ext_resource type="Texture2D" uid="uid://d4js15tq2idnl" path="res://Attack3.png" id="6_6e6sf"]
+[ext_resource type="Texture2D" uid="uid://jekvjwpt0757" path="res://Pre_Attack1.png" id="7_ct4xs"]
+[ext_resource type="Texture2D" uid="uid://bncon6pl4cp41" path="res://Pre_Attack2.png" id="8_ser7w"]
+[ext_resource type="Texture2D" uid="uid://cvb2efoap7v1o" path="res://Pre_Attack3.png" id="9_bfb00"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tjslr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fi1jb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i88o7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yp00y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f0kjc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6e6sf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufbb7"]
+size = Vector2(1920.25, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nsp60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ct4xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ser7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bfb00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boss" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_tj8q1")
+
+[node name="BossSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(784, 160)
+sprite_frames = SubResource("SpriteFrames_tjslr")
+
+[node name="AttackTimer" type="Timer" parent="."]
+script = ExtResource("3_e1j3e")
+
+[node name="Skill1" type="Area2D" parent="AttackTimer"]
+
+[node name="Skill1Sprite" type="AnimatedSprite2D" parent="AttackTimer/Skill1"]
+position = Vector2(959, 706)
+scale = Vector2(1, 0.5)
+sprite_frames = SubResource("SpriteFrames_i88o7")
+
+[node name="Skill1HitBox" type="CollisionShape2D" parent="AttackTimer/Skill1"]
+position = Vector2(960, 753)
+shape = SubResource("RectangleShape2D_ufbb7")
+
+[node name="SkillWarning" type="AnimatedSprite2D" parent="AttackTimer/Skill1"]
+position = Vector2(957, 705)
+scale = Vector2(1, 0.5)
+sprite_frames = SubResource("SpriteFrames_nsp60")
+
+[node name="check" type="RichTextLabel" parent="."]
+offset_left = 322.5
+offset_top = 145.0
+offset_right = 494.5
+offset_bottom = 190.0
+text = "It Worked"
+
+[connection signal="timeout" from="AttackTimer" to="AttackTimer" method="_on_timeout"]

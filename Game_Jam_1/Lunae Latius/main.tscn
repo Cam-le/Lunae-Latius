@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://x67ybbjxgnon"]
+
+[ext_resource type="Texture2D" uid="uid://by2nfsslxn58t" path="res://Background.png" id="1_njlp5"]
+[ext_resource type="Script" path="res://player.gd" id="1_v6ky1"]
+[ext_resource type="PackedScene" uid="uid://1r08kk0b8xef" path="res://player.tscn" id="3_umufg"]
+[ext_resource type="PackedScene" uid="uid://c5hpcujv7yikh" path="res://boss.tscn" id="4_sykve"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_v6ky1")
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(960, 540)
+texture = ExtResource("1_njlp5")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 1087.0
+offset_top = 154.0
+offset_right = 1509.0
+offset_bottom = 238.0
+theme_override_font_sizes/normal_font_size = 61
+text = "LUNAE LATIUS"
+fit_content = true
+autowrap_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("3_umufg")]
+position = Vector2(304, -100)
+
+[node name="Boss" parent="." instance=ExtResource("4_sykve")]

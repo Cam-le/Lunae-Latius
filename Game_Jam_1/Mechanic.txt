@@ -1,0 +1,34 @@
+Màn chơi:
+-Callisto // https://en.wikipedia.org/wiki/Callisto_(moon) 
+
+-Europa // https://en.wikipedia.org/wiki/Europa_(moon) 
+
+-Ganymede // https://en.wikipedia.org/wiki/Ganymede_(moon)
+
+
+Boss (Name: Spreading):
+-Khổng lồ hóa theo từng giai đoạn (Mỗi cấp có 1 hình ảnh đặc thù)
+
+-Mỗi 1 npc = 1 exp, điều kiện lên cấp tăng theo cấp số cộng.
+
+-Máu tăng theo cấp số nhân, hết máu -1 level
+
+-Tấn công người chơi với độ trễ x (Level càng cao x càng thấp)
+
+-Level > ??: Mở kĩ năng(Không cần nếu không kịp): +Lây nhiễm npc (Tấn công người chơi, x2 exp)
+										    +???
+
+Player:
+-Tốc độ di chuyển cố định, luôn tiến về phía trước (Người chơi chỉ có thể di chuyển lên xuống)
+-Trang bị cơ bản: +Bình cứu hỏa để bay (Có giới hạn?)
+			    +Vũ khí tự chọn (Hoặc phải nhặt vk)
+				
+
+-Có thể nhặt: +Nhiên liệu/đạn
+		      +
+
+
+
+NPC:
+-Có tỉ lệ % sẽ cướp lấy nâng cấp gần đó và quay ra bắn cả Player lẫn Boss
+-??

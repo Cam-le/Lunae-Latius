@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://1r08kk0b8xef"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ob56n"]
+[ext_resource type="Texture2D" uid="uid://cj1w5ex0ji414" path="res://Player_V3_Fly_1.png" id="1_x0v0e"]
+[ext_resource type="Texture2D" uid="uid://drl1jg34fuqge" path="res://Player_V3_Fly_2.png" id="2_sasij"]
+[ext_resource type="Texture2D" uid="uid://bukg12cxkymgo" path="res://Player_V3_Fly_3.png" id="3_l1kse"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fww0c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x0v0e")
+}, {
+"duration": 1.4,
+"texture": ExtResource("2_sasij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l1kse")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x0v0e")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu702"]
+size = Vector2(87, 183)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ob56n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(935, 617)
+sprite_frames = SubResource("SpriteFrames_fww0c")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(969.5, 589.5)
+shape = SubResource("RectangleShape2D_lu702")
+metadata/_edit_lock_ = true
